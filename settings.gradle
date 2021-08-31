@@ -1,0 +1,3 @@
+include ':single_click_lib'
+include ':app'
+rootProject.name = "SingleClick"

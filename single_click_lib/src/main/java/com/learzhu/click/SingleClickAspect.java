@@ -26,14 +26,21 @@ import java.lang.reflect.Method;
 public class SingleClickAspect {
     private static long mLastClickTime;
 
+    //    private static final String POINTCUT_METHOD =
+//            "execution(* onClick(..))";
     private static final String POINTCUT_METHOD =
-            "execution(* onClick(..))";
-//    private static final String POINTCUT_METHOD =
-//            "execution(* android.view.OnClickListener onClick(..))";
+            "execution(* android.view.OnClickListener.onClick(..))";
+    private static final String POINTCUT_METHOD_TEST =
+            "execution(* onViewCreated(..))";
     private static final String POINTCUT_ANNOTATION =
             "execution(@com.learzhu.click.SingleClick * *(..))";
     private static final String POINTCUT_BUTTER_KNIFE =
             "execution(@butterknife.OnClick * *(..))";
+
+    @Pointcut(POINTCUT_METHOD_TEST)
+    public void methodPointcutTest() {
+
+    }
 
     @Pointcut(POINTCUT_METHOD)
     public void methodPointcut() {
@@ -50,7 +57,7 @@ public class SingleClickAspect {
 
     }
 
-    @Around("methodPointcut() || annotationPointcut() || butterKnifePointcut()")
+    @Around("methodPointcut() || annotationPointcut() || butterKnifePointcut() || methodPointcutTest()")
     public void aroundJoinPoint(final ProceedingJoinPoint joinPoint) throws Throwable {
         try {
             MethodSignature signature = (MethodSignature) joinPoint.getSignature();

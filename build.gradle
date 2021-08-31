@@ -6,8 +6,10 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.0"
-        classpath "org.aspectj:aspectjtools:1.9.7"
-        classpath 'org.aspectj:aspectjweaver:1.9.7'
+        classpath 'cn.leo.plugin:magic-plugin:1.0.0' //java
+
+//        classpath "org.aspectj:aspectjtools:1.9.7"
+//        classpath 'org.aspectj:aspectjweaver:1.9.7'
 
 //        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
 
